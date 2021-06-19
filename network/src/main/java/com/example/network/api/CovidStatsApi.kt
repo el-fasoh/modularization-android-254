@@ -4,7 +4,7 @@ import com.example.domain.models.CovidStats
 import retrofit2.Response
 import retrofit2.http.GET
 
-interface CovidStatsApi {
+internal interface CovidStatsApi {
 
     @GET(value = "daily.json")
     suspend fun getStats(): Response<List<CovidStats>>

@@ -7,7 +7,7 @@ import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface CovidStatsDao {
+internal interface CovidStatsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun save(entries: List<CovidStatsEntity>)

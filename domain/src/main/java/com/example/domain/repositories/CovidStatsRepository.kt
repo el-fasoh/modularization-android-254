@@ -6,5 +6,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface CovidStatsRepository {
 
-    suspend fun fetchStats(): Flow<Result<List<CovidStats>>>
+    fun fetchStats(): Flow<Result<List<CovidStats>>>
 }

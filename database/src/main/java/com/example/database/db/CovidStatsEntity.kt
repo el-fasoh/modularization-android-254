@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "stats")
-data class CovidStatsEntity(
+internal data class CovidStatsEntity(
     @PrimaryKey(autoGenerate = true)
     var id: Long?,
 

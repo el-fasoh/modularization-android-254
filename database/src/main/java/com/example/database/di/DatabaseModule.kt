@@ -4,6 +4,9 @@ import android.content.Context
 import com.example.database.db.CovidDatabase
 import com.example.database.db.CovidStatsDao
 import com.example.database.db.CovidStatsEntity
+import com.example.database.repo.CovidStatsRepositoryImpl
+import com.example.domain.repositories.CovidStatsRepository
+import com.example.domain.services.CovidStatsService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,13 +19,18 @@ object DatabaseModule {
 
     @Provides
     @Singleton
-    fun provideCovidDatabase(context: Context): CovidDatabase = CovidDatabase.getInstance(context)
+    internal fun provideCovidDatabase(context: Context): CovidDatabase =
+        CovidDatabase.getInstance(context)
 
     @Provides
     @Singleton
-    fun provideCovidStatsDao(database: CovidDatabase): CovidStatsDao = database.covidStatsDao()
+    internal fun provideCovidStatsDao(database: CovidDatabase): CovidStatsDao =
+        database.covidStatsDao()
 
     @Provides
     @Singleton
-    fun provideEntity() = CovidStatsEntity(54564,46546,5644,4685468)
+    internal fun provideCovidStatsRepository(
+        covidStatsDao: CovidStatsDao,
+        covidStatsService: CovidStatsService
+    ): CovidStatsRepository = CovidStatsRepositoryImpl(covidStatsDao, covidStatsService)
 }

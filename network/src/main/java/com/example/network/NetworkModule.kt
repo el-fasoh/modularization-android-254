@@ -44,9 +44,9 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideCovidStatsService(covidStatsApi: CovidStatsApi): CovidStatsService = CovidStatsServiceImpl(covidStatsApi)
+    internal fun provideCovidStatsService(covidStatsApi: CovidStatsApi): CovidStatsService = CovidStatsServiceImpl(covidStatsApi)
 
     @Provides
     @Singleton
-    fun provideCovidStatsApi(retrofit: Retrofit): CovidStatsApi = retrofit.create(CovidStatsApi::class.java)
+    internal fun provideCovidStatsApi(retrofit: Retrofit): CovidStatsApi = retrofit.create(CovidStatsApi::class.java)
 }

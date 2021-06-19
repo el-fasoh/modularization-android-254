@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 @Database(entities = [CovidStatsEntity::class], version = 1)
-abstract class CovidDatabase : RoomDatabase() {
+internal abstract class CovidDatabase : RoomDatabase() {
 
     abstract fun covidStatsDao(): CovidStatsDao
 
