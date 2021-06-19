@@ -1,0 +1,6 @@
+rootProject.name = "Designer"
+include ':app'
+include ':network'
+include ':database'
+include ':domain'
+include ':core'
